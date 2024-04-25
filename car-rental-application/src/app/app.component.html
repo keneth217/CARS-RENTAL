@@ -1,0 +1,98 @@
+<div *ngIf="!isAdminLoggedIn && !isCustomerLoggedIn">
+  <nz-header class="main-header" nz-row nzType="flex" class="custom-navbar">
+    <div class="navbar-title">
+      <a routerLink="/login">Car rental Services</a>
+    </div>
+    <div class="nav-links">
+      <a nz-button nzType="link" routerLink="register" routerLinkActive="active">Sign up</a>
+      <a nz-button nzType="link" routerLink="login" routerLinkActive="active">Login</a>
+    </div>
+  </nz-header>
+
+</div>
+<div *ngIf="isAdminLoggedIn">
+  <nz-header class="main-header" nz-row nzType="flex" class="custom-navbar">
+    <div class="navbar-title">
+      <a routerLink="/login">ADMIN</a>
+    </div>
+    <div class="nav-links">
+      <a nz-button nzType="link" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
+      <a nz-button nzType="link" routerLink="/admin/car" routerLinkActive="active">Post Car</a>
+      <a nz-button nzType="link" routerLink="/admin/bookings" routerLinkActive="active">Bookings</a>
+      <a nz-button nzType="link" routerLink="/admin/search" routerLinkActive="active">search</a>
+      <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">LogOut</a>
+    </div>
+  </nz-header>
+  <nz-sider nzCollapsible nzBreakpoint="lg" [nzCollapsedWidth]="0" class="mobile-sidenav">
+    <ul class="nav-links" nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item>
+        <a nz-button nzType="link" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
+      </li>
+      <li nz-menu-item>
+        <a nz-button nzType="link" routerLink="/admin/car" routerLinkActive="active">Post Car</a>
+      </li>
+      <li nz-menu-item>
+        <a nz-button nzType="link" routerLink="/admin/bookings" routerLinkActive="active">search</a>
+      </li>
+      <li nz-menu-item>
+        <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">LogOut</a>
+      </li>
+    </ul>
+  </nz-sider>
+
+</div>
+<div *ngIf="isCustomerLoggedIn">
+  <nz-header class="main-header" nz-row nzType="flex" class="custom-navbar">
+
+    <div class="navbar-title">
+      <a routerLink="/login">CUSTOMER</a>
+    </div>
+    <div class="nav-links">
+      <a nz-button nzType="link" routerLink="/customer/dashboard" routerLinkActive="active">Dashboard</a>
+      <a nz-button nzType="link" routerLink="/customer/booking" routerLinkActive="active">Bookings</a>
+      <a nz-button nzType="link" routerLink="/customer/car/search" routerLinkActive="active">search</a>
+      <a nz-button nzType="link" (click)="logout()" routerLink="/login" routerLinkActive="active">LogOut</a>
+    </div>
+  </nz-header>
+  <!-- <nz-sider nzCollapsible nzBreakpoint="lg" [nzCollapsedWidth]="0" class="mobile-sidenav">
+    <ul class="nav-links" nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item>
+        <a nz-button nzType="link" routerLink="/customer/dashboard" routerLinkActive="active">Dashboard</a>
+      </li>
+      <li nz-menu-item>
+        <a nz-button nzType="link" routerLink="/customer/car/booking" routerLinkActive="active">Bookings</a>
+      </li>
+      <li nz-menu-item>
+        <a nz-button nzType="link" routerLink="/customer/car/search" routerLinkActive="active">search</a>
+      </li>
+      <li nz-menu-item>
+        <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">LogOut</a>
+      </li>
+    </ul>
+  </nz-sider> -->
+</div>
+<div>
+  <!-- <app-homepage></app-homepage> -->
+
+  <!-- <nz-radio-group [(ngModel)]="dotPosition">
+    <label nz-radio-button nzValue="bottom">Bottom</label>
+    <label nz-radio-button nzValue="top">Top</label>
+    <label nz-radio-button nzValue="left">Left</label>
+    <label nz-radio-button nzValue="right">Right</label>
+  </nz-radio-group>
+  <nz-carousel [nzDotPosition]="dotPosition">
+    @for (index of array; track index) {
+      <div nz-carousel-content>
+        <h3>{{ index }}</h3>
+      </div>
+    }
+  </nz-carousel> -->
+  <!-- <nz-carousel nzAutoPlay>
+    <div *ngFor="let imageUrl of imageUrls">
+      <div nz-carousel-content>
+        <img [src]="imageUrl" alt="Image">
+      </div>
+    </div>
+  </nz-carousel> -->
+</div>
+<router-outlet></router-outlet>

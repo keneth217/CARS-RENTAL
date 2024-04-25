@@ -1,0 +1,147 @@
+$secondary-color:#141a33;
+$primary-color:#f48023;
+$white:#ffffff;
+$white:#fcfcfc;
+
+
+
+.main-header {
+    background-color: #003973;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+    height: auto;
+    a.active{
+        background-color: $secondary-color;
+    }
+    a{
+        font-weight: 300;
+        font-size: 15px;
+        border-radius: 0px;
+        color:$white
+    }
+    a.ant-btn{
+        &:hover{
+            color:$white;
+            background-color: $secondary-color;
+        }
+    }
+    img{
+        width: 180px;
+
+    }
+    .img-profile{
+        width: 25px;
+    }
+}
+.active-button{
+    border-radius: opx !important;
+    padding: 2px 5px !important;
+    background: $secondary-color;
+}
+
+// .navbar-title {
+//     >a {
+//         color: white !important;
+//         margin-left: 10px;
+//         font-size: 18px;
+//         font-weight: bolder;
+//     }
+// }
+
+// .nav-links {
+//     display: flex;
+//     align-items: center;
+
+//     a {
+//         color: white;
+//         margin-left: 15px;
+//     }
+// }
+// [nz-carousel-content] {
+//     text-align: center;
+//     height: 300px;
+//     line-height: 300px;
+//     // background: #364d79;
+//     color: #fff;
+//     width: 100%;
+//     overflow: hidden;
+//   }
+
+//   h3 {
+//     color: #fff;
+//     margin-bottom: 0;
+//     user-select: none;
+//   }
+@media only screen and (max-width:768px){
+    .main-header{
+        .nav-links{
+            display: none;
+        }
+    }
+}
+@media only screen and (max-width:768px){
+    .nav-links{
+        list-style-type: none;
+        padding: 15px 0px;
+        a{
+            font-weight: 300;
+            font-size: 16px;
+        }
+    }
+}
+@media only screen and (min-width:768px) {
+    .mobile-sidenav{
+        display: none;
+    }
+    
+}
+::ng-deep.ant-layout-sider-zero-width-trigger{
+    background-color: $secondary-color;
+    top: 80px;
+}
+.mobile.sidenav.ant-layout-sider{
+    position: fixed;
+    top: 0px;
+    background: $primary-color;
+    height: 100vh;
+    z-index: 999;
+}
+.ant-layout.ant-layout-has-sider{
+    flex-direction: column;
+}
+::ng-deep.ant-menu-dark.ant-menu-inline .ant-menu-item{
+    padding: 0px !important;
+}
+::ng-deep.ant-dropdown-link{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.main-header-admin{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 57px;
+    background-color: $primary-color;
+    height: auto;
+}
+img.logo{
+    width:
+        100px;
+    
+}
+.img_profile{
+    width: 25px;
+}
+@media only screen and (max-width:991px){
+    .main-header{
+        .trigger{
+            display: none;
+        }
+        .header-logo{
+            width: 100px;
+        }
+    }
+}

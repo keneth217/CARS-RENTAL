@@ -1,0 +1,50 @@
+<div class="bg" style="background-color: #f8f8f8;">
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working.....">
+        <div class="parent">
+            <div class="child">
+                <div nz-row class="imgDiv">
+                    <div nz-col nzSpan="24">
+                        <h1 style="margin-left: 80px;">Sign up</h1>
+                    </div>
+                </div>
+                <form nz-form [formGroup]="signupForm">
+                     
+         
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback nzErrorTip="input is not valid email">
+                            <input nz-input placeholder="email" id="email" formControlName="email" />
+                          
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback  nzErrorTip="enter password">
+                            <input nz-input placeholder="password" type="password" id="password" formControlName="password" />
+                            
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback>
+                            <input nz-input placeholder="confirmPassword" type="password" id="confirmPassword" formControlName="confirmPassword" />
+                            <ng-container *ngIf="signupForm.controls['confirmPassword'].hasError('required')">
+                                confirmPassword is Required
+                            </ng-container>
+                            <ng-container *ngIf="signupForm.controls['confirmPassword'].hasError('pattern')">
+                                Password should contain 8 characters
+                            </ng-container>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback>
+                            <input nz-input placeholder="userName" type="text" id="userName" formControlName="name" />
+                            <ng-container *ngIf="signupForm.controls['name'].hasError('required')">
+                                userName Required
+                            </ng-container>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <button nz-button class="login-form-button" nzType="primary" (click)="register()" [disabled]="!signupForm.valid">Register</button>
+                    Or <a routerLink="/login">Login now!</a>
+                </form>
+            </div>
+        </div>
+    </nz-spin>
+</div>
