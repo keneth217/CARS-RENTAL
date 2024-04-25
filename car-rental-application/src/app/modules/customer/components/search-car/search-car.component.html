@@ -1,0 +1,88 @@
+<div class="inner-content">
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working.....">
+        <div class="dashboard-filter">
+            <div class="filter-grid" [formGroup]="searchForm">
+                <div nz-row class="filter-select-dropdown filter--fields-width">
+
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="this input is requiered"
+                            class="login-form">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceholder="select brand name" placeholder="brand"
+                                formControlName="brand" />
+                            <nz-option *ngFor="let brand of listOfBrands" nzLabel="{{brand}}"
+                                nzValue="{{brand}}"></nz-option>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="this input is requiered">
+                        <input nz-input placeholder="name" formControlName="name" />
+                    </nz-form-control>
+                </nz-form-item>
+
+
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="this input is requiered" class="login-form">
+                        <nz-select nzShowSearch nzAllowClear nzPlaceholder="select Type" placeholder="types"
+                            formControlName="type" />
+                        <nz-option *ngFor="let type of listOfTypes" nzLabel="{{type}}" nzValue="{{type}}"></nz-option>
+                    </nz-form-control>
+                </nz-form-item>
+
+
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="this input is requiered" class="login-form">
+                        <nz-select nzShowSearch nzAllowClear nzPlaceholder="select Type" formControlName="transmission"
+                            placeholder="transmission" />
+                        <nz-option *ngFor="let transmission of listOfTransmission" nzLabel="{{transmission}}"
+                            nzValue="{{transmission}}"></nz-option>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="this input is requiered" class="login-form">
+                        <nz-select nzShowSearch nzAllowClear nzPlaceholder="select Type" formControlName="type"
+                            placeholder="color" />
+                        <nz-option *ngFor="let color of listOfColors" nzLabel="{{color}}" nzValue="{{color}}"></nz-option>
+                    </nz-form-control>
+                </nz-form-item>
+
+
+
+                <div class="filter-select-dropdown filter-fields-width">
+                    <button nz-button class="filterBtn" nz-button [nzType]="'primary'" (click)="searchCar()">Search
+                        Car</button>
+                </div>
+
+            </div>
+        </div>
+    </nz-spin>
+</div>
+<div style="background-color: #f8f8f8;">
+    <div class="child" style="padding-bottom: 30px;" *ngFor="let car of cars">
+        <div nz-row>
+            <div nz-col nzspan="8">
+                <img class="profile" style="height: 130px; width: 220px; border-radius: 10px;" [src]="car.proccessedimage"
+                    alt="">
+
+            </div>
+            <div nz-col nzspan="8">
+                <h2 style="cursor: pointer;color: #108ee9;">
+                    {{car.brand}}-{{car.name}}
+                </h2>
+                <p>{{car.description}}</p>
+                <hr>
+                <h5>
+                    <b>price:Kshs{{car.price}}</b>-
+                    <b>color:{{car.color}}</b>-
+                    <b>transmision:{{car.transmission}}</b>-
+                    <b>type:{{car.type}}</b>
+                    <b>year{{car.year | date: 'yyyy'}}</b>
+                </h5>
+            </div>
+        </div>
+
+    </div>
+
+</div>

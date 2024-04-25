@@ -1,0 +1,86 @@
+
+.parent{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.child{
+    padding: 50px;
+    position: absolute;
+    width: 100%;
+    max-width: 680px;
+    border-radius: 5px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 1px 1px 15px -7px rgba(0, 0,0,0.1);
+    border-radius: 5px;
+    margin-bottom: 22px;
+}
+.imgDiv{
+    text-align: center;
+    width: 100%;
+    vertical-align: middle;
+    margin-bottom: 40px;
+}
+.profile-bage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile{
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.uload-label{
+    cursor: pointer;
+}
+.upload-icon{
+    width: 70px;
+    height: 35px;
+    margin-top: 10px;
+}
+.login-form-button{
+    margin-top: 20px;
+    width: 100%;
+}
+.file-upload-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    .file-upload-label{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        input[type="file"]{
+            display: flex;
+        }
+    }
+    .image-preview{
+        margin-top: 10px;
+        margin-left: 100px;
+        .circle-image{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #ccc;
+            display: flex;
+            justify-content: center;
+            .preview-image{
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+    }
+}
+nz-form-item{
+    margin-bottom: 20px;
+}

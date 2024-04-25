@@ -1,0 +1,31 @@
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="working....">
+
+    <div style="background-color: #f8f8f8; min-height: 91vh;">
+        <div style="padding-top: 10px;">
+            <div style="margin-top: 10px;" class="child" *ngFor="let car of cars">
+                <div nz-col nzSpan="8">
+                    <img class="profile" style="height: 130px;width: 200px; border-radius: 10px;" [src]="car.processedimage
+                    " alt=" profile">
+                </div>
+                <div nz-col nzSpan="16">
+                    <h2 style="cursor: pointer; color: #108ee9;">{{car.brand}}-{{car.name}}</h2>
+                    <p>{{car.description}}</p>
+                    <hr>
+                    <h5>
+                        Price: <b>ksh: {{car.price}}</b> -
+                        Color: <b>{{car.color}}</b> -
+                        Transmission: <b>{{car.transmission}}</b> -
+                        Type: <b>{{car.type}}</b> -
+                        Year: <b>{{car.year | date: 'yyyy'}}</b>
+                    </h5>
+                    <hr>
+                    <div style="float: right;">
+                        <button nz-button style="margin-left: 10px; " nzSize="small" nzType="primary"
+                            routerLink="/customer/book/{{car.id}}" routerLinkActive="router-link-active">book</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</nz-spin>

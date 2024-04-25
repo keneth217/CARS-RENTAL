@@ -1,0 +1,13 @@
+<nz-content style="padding: 0 50px;">
+    <!-- Your main content goes here -->
+    <div class="site-layout-content">
+      <h1>Welcome to Car Rental Organization</h1>
+      <p>Find the perfect car for your journey with us!</p>
+      <nz-carousel nzAutoPlay>
+        <div nz-carousel-content *ngFor="let image of carouselImages">
+          <img [src]="image" alt="Car Image">
+        </div>
+      </nz-carousel>
+      <p>We provide a wide range of cars for rent, whether you need a compact car for a city trip or an SUV for a family vacation.</p>
+    </div>
+  </nz-content>
