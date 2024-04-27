@@ -31,10 +31,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
-    private final AuthenticationManager authenticationManager;
-    private final UserService userService;
-    private final JwtUtils jwtUtils;
-    private final UserRepository userRepository;
+
     @PostMapping("/sign")
     public ResponseEntity<?> createUser(@RequestBody SignUpRequest signUpRequest){
         if (authService.hasCustomerWithEmail(signUpRequest.getEmail()))
@@ -46,30 +43,8 @@ public class AuthController {
 
     }
     @PostMapping("/login")
-    public AuthenticationResponse createAuthToken(@RequestBody AuthenticationRequest authenticationRequest) throws
-            BadCredentialsException,
-            UsernameNotFoundException,
-            DisabledException
-    {
-        try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                    authenticationRequest.getEmail(),
-                    authenticationRequest.getPassword()));
-        } catch (BadCredentialsException e) {
-            throw new BadCredentialsException("incorrect login credentials");
-        }
-        final UserDetails userDetails=userService.userDetailsService()
-                .loadUserByUsername(authenticationRequest.getEmail());
-        Optional<User> optionalUser=userRepository.findFirstByEmail(authenticationRequest.getEmail());
-        final String jwt=jwtUtils.generateToken(userDetails.getUsername());
-        AuthenticationResponse authenticationResponse= new AuthenticationResponse();
-        if (optionalUser.isPresent()){
-            authenticationResponse.setJwt(jwt);
-            authenticationResponse.setUserId(String.valueOf(optionalUser.get().getId()));
-            authenticationResponse.setRole(optionalUser.get().getRole());
-            authenticationResponse.setUserName(optionalUser.get().getName());
-        }
-        return authenticationResponse;
+public ResponseEntity<AuthenticationResponse> login(@RequestBody AuthenticationRequest authenticationRequest){
+        return ResponseEntity.ok(authService.createAuthToken(authenticationRequest));
     }
 
 }
