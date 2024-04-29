@@ -32,9 +32,9 @@ public class AdminController {
         return  ResponseEntity.ok(adminService.getAllCars());
     }
     @DeleteMapping("/car/{id}")
-    public ResponseEntity<Void> deleteCar(@PathVariable Long id){
+    public ResponseEntity<String> deleteCar(@PathVariable Long id){
         adminService.deleteCar(id);
-        return ResponseEntity.ok(null);
+        return ResponseEntity.ok("car deleted successfully");
     }
     @GetMapping("/car/{id}")
     public ResponseEntity<CarDto> getCarById(@PathVariable Long id){
